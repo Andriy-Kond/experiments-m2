@@ -4,7 +4,7 @@ const DropdownMenuContainer = styled.div`
   position: relative;
   display: flex;
   gap: 20px;
-  width: 400px;
+  /* width: 400px; */
   padding: 20px;
   background-color: cornflowerblue;
 `;

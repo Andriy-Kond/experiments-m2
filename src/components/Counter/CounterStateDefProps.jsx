@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { Controls } from "components/Counter/Controls/Controls";
 
 class CounterStateDefProps extends Component {
-  // Значення за замовчуванням, якщо не переданий step:
+  // Значення за замовчуванням, якщо не переданий props.step:
   static defaultProps = {
     step: 1,
   };
 
+  // Так само, якщо треба для інших даних, наприклад prop types:
   static propTypes = {
     // ...
   };
@@ -25,7 +26,7 @@ class CounterStateDefProps extends Component {
   };
 
   render() {
-    const { step } = this.props; // якщо не переданий, то буде ===1
+    const { step } = this.props; // якщо не переданий, то буде === 1
     const { value } = this.state;
     return (
       <div>
@@ -33,12 +34,6 @@ class CounterStateDefProps extends Component {
 
         <span>{value}</span>
 
-        {/* Винести розмітку у додатковий компонент: */}
-        <Controls
-          step={step}
-          onIncrement={this.handleIncrement}
-          onDecrement={this.handleDecrement}
-        />
         {/* <button type="button" onClick={this.handleIncrement}>
           Increment by {step}
         </button>
@@ -46,6 +41,13 @@ class CounterStateDefProps extends Component {
         <button type="button" onClick={this.handleDecrement}>
           Decrement by {step}
         </button> */}
+
+        {/* Виношу розмітку двох кнопок у додатковий компонент: */}
+        <Controls
+          step={step}
+          onIncrement={this.handleIncrement}
+          onDecrement={this.handleDecrement}
+        />
       </div>
     );
   }
