@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export class CounterAsyncLinkToElement extends Component {
+class CounterAsyncLinkToElement extends Component {
   handleIncrement = evt => {
     // Раніше було так:
     // Посилання evt працює лише в синхронному коді:
@@ -39,3 +39,4 @@ export class CounterAsyncLinkToElement extends Component {
     );
   }
 }
+export default CounterAsyncLinkToElement;

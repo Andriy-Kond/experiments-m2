@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export class CounterThis extends Component {
+class CounterThis extends Component {
   // В звичайному методі класу неможливо достукатись до this при onClick, тому використовують публічну властивість, в яку передають стрілку:
   handleIncrementWithoutThis() {
     console.log("this :>> ", this); // this :>>  undefined
@@ -53,3 +53,5 @@ export class CounterThis extends Component {
     );
   }
 }
+
+export default CounterThis;

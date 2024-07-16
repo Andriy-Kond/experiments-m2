@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export class CounterStateUpd extends Component {
+class CounterStateUpd extends Component {
   // // OldSchool:
   // constructor() {
   //   super(); // виклик React.Component
@@ -19,16 +19,17 @@ export class CounterStateUpd extends Component {
   state = { value: this.props.step };
 
   handleIncrement = () => {
+    const { value } = this.state;
     // upd state
     // якщо не треба використовувати попереднє значення state використовується передача об'єктної форми.
     this.setState({ value: 30 }, () => {});
     // Функція callback викликається лише після того як стан буде змінено (зазвичай не використовується)
 
     // Якщо треба поміняти стейт спираючись на попередній стан не можна робити так:
-    this.setState({ value: this.state.value + 1 }, () => {});
+    this.setState({ value: value + 1 }, () => {});
     // тому що якщо повторити, то не спрацює, бо це буде стан на момент реєстрації:
-    this.setState({ value: this.state.value + 1 }, () => {}); // не спрацює
-    this.setState({ value: this.state.value + 1 }, () => {}); // не спрацює
+    this.setState({ value: value + 1 }, () => {}); // не спрацює
+    this.setState({ value: value + 1 }, () => {}); // не спрацює
     // Хоча, якщо зробити +=1 воно спрацює, але це не правильно - навіть VS Code каже про це.
   };
 
@@ -43,11 +44,12 @@ export class CounterStateUpd extends Component {
 
   render() {
     const { step } = this.props;
+    const { value } = this.state;
 
     return (
       <div>
         <h3>CounterStateUpd</h3>
-        <span>{this.state.value}</span>
+        <span>{value}</span>
 
         <button type="button" onClick={this.handleIncrement}>
           Increment by {step}
@@ -60,3 +62,5 @@ export class CounterStateUpd extends Component {
     );
   }
 }
+
+export default CounterStateUpd;

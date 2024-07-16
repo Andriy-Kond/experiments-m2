@@ -1,19 +1,24 @@
 import "./App.css";
-import { CounterThis } from "components/CounterThis";
-import { CounterAsyncLinkToElement } from "components/CounterAsyncLinkToElement";
-import { CounterStateUpd } from "components/CounterStateUpd";
-import { CounterStateDefProps } from "components/CounterStateDefProps";
+// import CounterThis from "components/Counter/CounterThis";
+// import CounterAsyncLinkToElement from "components/Counter/CounterAsyncLinkToElement";
+// import CounterStateUpd from "components/Counter/CounterStateUpd";
+
+// import CounterStateDefProps from "components/Counter/"; // через реекспорт from index.js
+
+import Dropdown from "components/DropdownMenu";
 
 function App() {
   return (
     <div className="App">
-      <CounterThis step={1} />
+      {/* <CounterThis step={1} />
 
       <CounterAsyncLinkToElement step={2} />
 
       <CounterStateUpd step={3} />
 
-      <CounterStateDefProps />
+      <CounterStateDefProps step={3} /> */}
+
+      <Dropdown />
     </div>
   );
 }
