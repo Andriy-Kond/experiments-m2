@@ -44,8 +44,16 @@ class App extends Component {
     }));
   };
 
+  onReadyTodos = () => this.state.todos.filter(todo => todo.completed === true);
+
   render() {
     const { todos } = this.state;
+    const completedTodosCountV1 = todos.filter(todo => todo.completed === true);
+    const completedTodosCountV2 = todos.reduce(
+      (acc, todo) => (todo.completed ? acc + 1 : acc),
+      0,
+    );
+
     return (
       <div className="App">
         {/* Counter */}
@@ -61,7 +69,11 @@ class App extends Component {
         {/* <ColorPicker colors={colors} /> */}
 
         {/* Todo List */}
-        <TodoList todos={todos} deleteTodo={this.onDeleteTodo} />
+
+        <p>Всього завдань: {todos.length}</p>
+        <p>Виконаних завдань: {completedTodosCountV1.length}</p>
+        <p>Виконаних завдань V2: {completedTodosCountV2}</p>
+        <TodoList todos={todos} onDeleteTodo={this.onDeleteTodo} />
       </div>
     );
   }
